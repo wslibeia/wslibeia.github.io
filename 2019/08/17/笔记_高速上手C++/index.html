@@ -186,7 +186,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="Search" />
+						<input type="text" class="input u-search-input" placeholder="搜索" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -448,7 +448,7 @@
 <h4 id="模板专门化"><a href="#模板专门化" class="headerlink" title="模板专门化"></a>模板专门化</h4><p> 当我们要定义模板的不同实现，我们可以使用模板的专门化。例如我们定义的stack类模板，如果是char*类型的栈，我们希望可以复制char的所有数据到stack类中，因为只是保存char指针，char指针指向的内存有可能会失效，stack弹出的堆栈元素char指针，指向的内存可能已经无效了。还有我们定义的swap函数模板，在vector或者list等容器类型时，如果容器保存的对象很大，会占用大量内存，性能下降，因为要产生一个临时的大对象保存a，这些都需要模板的专门化才能解决。</p>
 <p>函数模板专门化</p>
 <p>  假设我们swap函数要处理一个情况，我们有两个很多元素的vector<int>,在使用原来的swap函数，执行tmpT = t1要拷贝t1的全部元素，占用大量内存，造成性能下降，于是我们系统通过vector.swap函数解决这个问题,代码如下:</int></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//method.h</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">swap</span>(<span class="title">T</span>&amp; <span class="title">t1</span>, <span class="title">T</span>&amp; <span class="title">t2</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"method.cpp"</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//method.h</span><br><span class="line">template&lt;class T&gt; void swap(T&amp; t1, T&amp; t2);</span><br><span class="line"></span><br><span class="line">#include &quot;method.cpp&quot;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -462,7 +462,7 @@
 
 
 <p>vector<int>的swap代码还是比较局限，如果要用模板专门化解决所有vector的swap，该如何做呢，只需要把下面代码</int></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t1, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t2)</span> </span>&#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br><span class="line">改为</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">V</span>&gt; <span class="title">void</span> <span class="title">swap</span>(<span class="title">std</span>:</span>:<span class="built_in">vector</span>&lt;V&gt;&amp; t1, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;V&gt;&amp; t2) &#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template&lt;&gt; void swap(std::vector&lt;int&gt;&amp; t1, std::vector&lt;int&gt;&amp; t2) &#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br><span class="line">改为</span><br><span class="line">template&lt;class V&gt; void swap(std::vector&lt;V&gt;&amp; t1, std::vector&lt;V&gt;&amp; t2) &#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>就可以了，其他代码不变。</p>
 <p>类模板专门化</p>
@@ -505,7 +505,7 @@
 
 <h3 id="4-Lambda表达式"><a href="#4-Lambda表达式" class="headerlink" title="4 Lambda表达式"></a>4 Lambda表达式</h3><p>lambda表达式是c++11中最重要的新特性之一。lambda表达式实际上提供了一个类似匿名函数的特性，而匿名函数则是在需要一个函数，但是又不想费力去命名一个函数的情况下去使用的。</p>
 <p>lambda表达式基本语法</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">捕获列表</span>](<span class="link">参数列表</span>) mutable (可选) 异常属性 -&gt; 返回类型 &#123;</span><br><span class="line"> //函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[捕获列表](参数列表) mutable (可选) 异常属性 -&gt; 返回类型 &#123;</span><br><span class="line"> //函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>所谓捕获列表,其实可以理解为参数的一种类型,lambda 表达式内部函数体在默认情况下是不能够使用函数体外部的变量的,这时候捕获列表可以起到传递外部数据的作用。根据传递的行为,捕获列表也分为以下几种:值捕获、引用捕获、隐式捕获、表达式捕获 (C++14)</p>
 <p>详见高速上手C++Ｐ<del>33</del></p>
@@ -574,7 +574,7 @@
           <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-22T21:03:33+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Aug 22, 2019</p>
+    <p>最后更新于 Aug 22, 2019</p>
   </a>
 </div>
 
@@ -643,7 +643,7 @@
                 
                     <section class="prev">
                         <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
                                 <a href="/2019/08/17/记一次ESP8266刷固件遇到的问题及解决方法/" rel="prev" title="记一次ESP8266刷固件遇到的问题及解决方法">
                                   
@@ -663,7 +663,7 @@
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
                                 <a href="/2019/07/10/Ubuntu所遇问题及解决方案/" rel="prev" title="Ubuntu所遇问题及解决方案">
                                     
@@ -778,7 +778,7 @@
   <section class='widget toc-wrapper'>
     
 <header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
   
     <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
   
@@ -888,7 +888,7 @@
   <section class='widget category'>
     
 <header class='pure'>
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
   
     <a class="rightBtn"
     
@@ -947,7 +947,7 @@
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
   
     <a class="rightBtn"
     
@@ -1063,19 +1063,19 @@
     </div>
   
   <br>
-  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
-    Use
+    本站使用
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    as theme
+    作为主题
     
-      , 
-      total visits
+      ，
+      总访问量为
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      times
+      次
     
-    . 
+    。
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1185,15 +1185,15 @@
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "Copied";
-  let COPY_FAILURE = "Copy failed";
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {

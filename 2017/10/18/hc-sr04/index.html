@@ -186,7 +186,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="Search" />
+						<input type="text" class="input u-search-input" placeholder="搜索" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -392,7 +392,7 @@
 
 
 <p><strong>超声波在K60使用方法</strong></p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用逐飞库IIC,与逐飞摄像头使用冲突</span></span><br><span class="line"><span class="comment">//主函数中记得初始化  gpio\_init(PTRn\_e,GPO,0);  Rx为你所初始化的io口</span></span><br><span class="line"><span class="comment">//                    gpio\_init(PTRn\_e,GPI,0);</span></span><br><span class="line"><span class="comment">//食用方法</span></span><br><span class="line"><span class="comment">//eg:float var;</span></span><br><span class="line"><span class="comment">//var=GetHcsrDistance(PTD2,PTD1);</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> FLAGWAIT    0xFFFFF</span></span><br><span class="line"></span><br><span class="line">uint32 <span class="built_in">GetHcsrDistance</span>(PTXn_e TRIG,PTXn_e ECHG)</span><br><span class="line">&#123;</span><br><span class="line">    uint32 g_GetPitTime,g_GetHcsrDistance;</span><br><span class="line">    uint32 flag;    </span><br><span class="line"></span><br><span class="line">    flag = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">gpio_set</span>(TRIG,<span class="number">1</span>);               <span class="comment">//产生触发脉冲</span></span><br><span class="line">    <span class="built_in">pit_delay_us</span>(PIT1,<span class="number">15</span>);</span><br><span class="line">    <span class="built_in">gpio_set</span>(TRIG,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">gpio_get</span>(ECHG) == <span class="number">0</span>);             <span class="comment">//等待电平变高，低电平一直等待</span></span><br><span class="line">    <span class="built_in">pit_time_start</span>  (PIT2);                 <span class="comment">//开始计时</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">gpio_get</span>(ECHG) == <span class="number">1</span>)              <span class="comment">//等待电平变低，高电平一直等待</span></span><br><span class="line">    &#123;</span><br><span class="line">        flag++;</span><br><span class="line">        <span class="keyword">if</span>(flag &gt;FLAGWAIT)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;             </span><br><span class="line"></span><br><span class="line">    g_GetPitTime = <span class="built_in">pit_time_get_us</span>    (PIT2);    <span class="comment">//停止计时，获取计时时间</span></span><br><span class="line">    <span class="keyword">if</span>(flag <span class="number">5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n\n距离为：%dmm"</span>,g_GetPitTime); <span class="comment">//打印延时时间</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> g_GetHcsrDistance; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//调用逐飞库IIC,与逐飞摄像头使用冲突</span><br><span class="line">//主函数中记得初始化  gpio\_init(PTRn\_e,GPO,0);  Rx为你所初始化的io口</span><br><span class="line">//                    gpio\_init(PTRn\_e,GPI,0);</span><br><span class="line">//食用方法</span><br><span class="line">//eg:float var;</span><br><span class="line">//var=GetHcsrDistance(PTD2,PTD1);</span><br><span class="line"></span><br><span class="line"># define FLAGWAIT    0xFFFFF</span><br><span class="line"></span><br><span class="line">uint32 GetHcsrDistance(PTXn_e TRIG,PTXn_e ECHG)</span><br><span class="line">&#123;</span><br><span class="line">    uint32 g_GetPitTime,g_GetHcsrDistance;</span><br><span class="line">    uint32 flag;    </span><br><span class="line"></span><br><span class="line">    flag = 0;</span><br><span class="line">    gpio_set(TRIG,1);               //产生触发脉冲</span><br><span class="line">    pit_delay_us(PIT1,15);</span><br><span class="line">    gpio_set(TRIG,0);</span><br><span class="line"></span><br><span class="line">    while(gpio_get(ECHG) == 0);             //等待电平变高，低电平一直等待</span><br><span class="line">    pit_time_start  (PIT2);                 //开始计时</span><br><span class="line">    while(gpio_get(ECHG) == 1)              //等待电平变低，高电平一直等待</span><br><span class="line">    &#123;</span><br><span class="line">        flag++;</span><br><span class="line">        if(flag &gt;FLAGWAIT)</span><br><span class="line">        &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;             </span><br><span class="line"></span><br><span class="line">    g_GetPitTime = pit_time_get_us    (PIT2);    //停止计时，获取计时时间</span><br><span class="line">    if(flag 5)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;\n\n距离为：%dmm&quot;,g_GetPitTime); //打印延时时间</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return g_GetHcsrDistance; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -408,7 +408,7 @@
           <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-07-21T10:23:49+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Jul 21, 2019</p>
+    <p>最后更新于 Jul 21, 2019</p>
   </a>
 </div>
 
@@ -480,7 +480,7 @@
                 
                     <section class="prev">
                         <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
                                 <a href="/2017/10/18/PID的几种算法/" rel="prev" title="PID的几种算法">
                                   
@@ -500,7 +500,7 @@
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
                                 <a href="/2017/10/18/蓝牙示波器使用/" rel="prev" title="蓝牙示波器使用">
                                     
@@ -706,7 +706,7 @@
   <section class='widget category'>
     
 <header class='pure'>
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
   
     <a class="rightBtn"
     
@@ -765,7 +765,7 @@
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
   
     <a class="rightBtn"
     
@@ -881,19 +881,19 @@
     </div>
   
   <br>
-  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
-    Use
+    本站使用
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    as theme
+    作为主题
     
-      , 
-      total visits
+      ，
+      总访问量为
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      times
+      次
     
-    . 
+    。
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1003,15 +1003,15 @@
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "Copied";
-  let COPY_FAILURE = "Copy failed";
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {

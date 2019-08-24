@@ -186,7 +186,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="Search" />
+						<input type="text" class="input u-search-input" placeholder="搜索" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -393,7 +393,7 @@
 <p>2）<code>int (*p2)[10]</code>  或者 <code>int (*)[10]p2</code></p>
 <p>1） []的优先级比<em>高，所以p1先与[]结合，构成一个数组，int \</em>修饰数组的内容，即这是一个数组，其包含10个指向int类型数据的指针，即指针数组</p>
 <p>2）()的优先级比[]高，*和p2构成一个指针，指针变量名为p2，int修饰的为数组的内容，即数组内的每个元素。数组在这没有名字即为数组指针。</p>
-<p><img src="C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%AD%E7%9A%84-a%E4%B8%8Ea/1566458792911.png" alt="156645892911"></p>
+<p><img src="./C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%AD%E7%9A%84-a%E4%B8%8Ea/1566458792911.png" alt="156645892911"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>&#125;;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;a   %p"</span>,&amp;a);<span class="comment">//整个数组的首地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"  sizeof(a) %ld\n"</span>,<span class="keyword">sizeof</span>(a)); <span class="comment">//数组a的大小</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;a+1 %p\n"</span>,&amp;a+<span class="number">1</span>);<span class="comment">//下个数组的首地址 = 数组首地址 + sizeof(a)</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" a   %p\n"</span>,a);   <span class="comment">//数组中a[0]的首地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" a+1 %p\n"</span>,a+<span class="number">1</span>); <span class="comment">//数组中a[1]的首地址 = 数组中a[0]的首地址 + sizeof(a[0])</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//指针p1[0]指向数组a p1[1]指向数组a结束，下个数组起始</span></span><br><span class="line">	<span class="keyword">int</span> (*p1)[<span class="number">5</span>] = &amp;a;  <span class="comment">//指针数组  将整个数组a的首地址赋给数组指针中 首个指针 </span></span><br><span class="line">	<span class="keyword">int</span> *p2[<span class="number">5</span>];         <span class="comment">//数组指针  *p2 指向匿名数组[5](5个int类型数据的数组) 的指针</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//error: cannot convert ‘int*’ to ‘int (*)[5]’ in initialization</span></span><br><span class="line">	<span class="comment">//int (*p2)[5] = a; //将数组a[0]的首地址赋给数组指针中 但是报错</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1[0]   %p\n"</span>,p1[<span class="number">0</span>]);  <span class="comment">//指针数组中 p1[0]的地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1[1]   %p\n"</span>,p1[<span class="number">1</span>]);  <span class="comment">//指针数组中 p1[1]的地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1+1    %p\n"</span>,p1+<span class="number">1</span>);   <span class="comment">//指针数组中 p1的地址 + sizeof(a) 也即p1[1]</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1[2]   %p\n"</span>,p1[<span class="number">2</span>]);  <span class="comment">//指针数组中 p1[2]的地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1+2    %p\n"</span>,p1+<span class="number">2</span>);   <span class="comment">//指针数组中 p1的地址 + 2*sizeof(a) 也即p1[2]</span></span><br><span class="line">	<span class="comment">//printf("p2 %p\n",p2);</span></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1     %p\n"</span>,*p1);		   <span class="comment">//指针数组的首地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1[0]  %d\n"</span>,*p1[<span class="number">0</span>]);	   <span class="comment">//指针数组中第一个指针 指向的首地址 的值</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1[0]+1 %d\n"</span>,*(p1[<span class="number">0</span>]+<span class="number">1</span>));<span class="comment">//指针数组中第一个指针 指向的首地址+偏移量1 的值</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1[0]+2 %d\n"</span>,*(p1[<span class="number">0</span>]+<span class="number">2</span>));<span class="comment">//指针数组中第一个指针 指向的首地址+偏移量2 的值</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1[0]+3 %d\n"</span>,*(p1[<span class="number">0</span>]+<span class="number">3</span>));<span class="comment">//指针数组中第一个指针 指向的首地址+偏移量3 的值</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p1[1]  %d\n"</span>,*p1[<span class="number">1</span>]);     <span class="comment">//指针数组中第二个指针 指向的首地址 的值（未初始化 所以为任意值）</span></span><br><span class="line">	<span class="comment">//printf("*p2 %d\n",*p2);	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>程序运行结果：</p>
@@ -410,10 +410,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-22T22:29:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-24T14:19:34+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Aug 22, 2019</p>
+    <p>最后更新于 Aug 24, 2019</p>
   </a>
 </div>
 
@@ -485,7 +485,7 @@
                 
                     <section class="prev">
                         <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
                                 <a href="/2019/08/22/C语言运算符优先级/" rel="prev" title="C语言运算符优先级">
                                   
@@ -505,7 +505,7 @@
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
                                 <a href="/2019/08/17/记一次ESP8266刷固件遇到的问题及解决方法/" rel="prev" title="记一次ESP8266刷固件遇到的问题及解决方法">
                                     
@@ -620,7 +620,7 @@
   <section class='widget toc-wrapper'>
     
 <header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
   
     <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
   
@@ -730,7 +730,7 @@
   <section class='widget category'>
     
 <header class='pure'>
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
   
     <a class="rightBtn"
     
@@ -789,7 +789,7 @@
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
   
     <a class="rightBtn"
     
@@ -905,19 +905,19 @@
     </div>
   
   <br>
-  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
-    Use
+    本站使用
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    as theme
+    作为主题
     
-      , 
-      total visits
+      ，
+      总访问量为
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      times
+      次
     
-    . 
+    。
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1027,15 +1027,15 @@
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "Copied";
-  let COPY_FAILURE = "Copy failed";
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {
