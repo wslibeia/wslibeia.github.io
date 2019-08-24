@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>笔记_高速上手C++ | 一隅</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="msapplication-TileColor" content="#1BC3FB">
+  <meta name="msapplication-config" content="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/browserconfig.xml">
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/favicon-32x32.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/apple-touch-icon.png">
+  <link rel="mask-icon" color="#1BC3FB" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/safari-pinned-tab.svg">
+  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicons/site.webmanifest">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>X</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          一隅
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/08/17/笔记_高速上手C++/">
+        笔记_高速上手C++
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://gonglja.github.io" rel="nofollow">
+      
+        <img src="http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg">
+      
+      <p>gonglja</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-17</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/c/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>c++</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>学习C++过程中一些遇到的一些重点及问题。</p>
+<a id="more"></a>
+
+<h3 id="１一些需要注意的问题"><a href="#１一些需要注意的问题" class="headerlink" title="１一些需要注意的问题"></a>１一些需要注意的问题</h3><ul>
+<li>C++标准中数组的长度必须是一个常量表达式</li>
+<li>const为常数，而非 常量表达式</li>
+<li>constexptr让用户显式的声明函数或对象构造函数在编译期会成为常量表达式，在c++14开始，可在内部使用局部变量、循环和分支等语句</li>
+<li>auto不能用于函数传参，也不能推导数组类型。</li>
+<li>std::is_same&lt;T, U&gt; 用于判断 T 和 U 这两个类型是否相等</li>
+</ul>
+<h3 id="２范围的迭代写法（c-11引入）"><a href="#２范围的迭代写法（c-11引入）" class="headerlink" title="２范围的迭代写法（c++11引入）"></a>２范围的迭代写法（c++11引入）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec = &#123;<span class="number">1</span> , <span class="number">2</span> , <span class="number">3</span> , <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="comment">//if (auto itr = std::find(vec.begin(),vec.end(),3);itr != vec.end()) </span></span><br><span class="line">    <span class="comment">//	*itr= 4;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> element:vec)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; element &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;<span class="comment">// read only</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">auto</span> &amp;element:vec )</span><br><span class="line">    &#123;</span><br><span class="line">        element += <span class="number">1</span>;					 <span class="comment">//writeable</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">auto</span> element:vec )</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; element &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;<span class="comment">// read only</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-模板"><a href="#3-模板" class="headerlink" title="3 模板"></a>3 模板</h3><p>传统C++中，模板只有在使用时才会被编译器实例化。易造成重复实例化导致编译时间增加。</p>
+<p>为此，C++１１引入外部模块，使我们能够显式的通知编译器何时进行模板的实例化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> <span class="class"><span class="keyword">class</span> <span class="title">std</span>:</span>:<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;;　　　　　　<span class="comment">// 强行实例化</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">template</span> <span class="class"><span class="keyword">class</span> <span class="title">std</span>:</span>:<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;; <span class="comment">// 不在该当前编译文件中实例化模板</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="c-模板template用法总结"><a href="#c-模板template用法总结" class="headerlink" title="c++模板template用法总结"></a><strong>c++模板template用法总结</strong></h4><h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>模板（Template）指C++程序设计设计语言中采用类型作为参数的程序设计，支持通用程序设计。C++ 的标准库提供许多有用的函数大多结合了模板的观念，如STL以及IO Stream。</p>
+<h4 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h4><p>在c++入门中，很多人会接触swap(int&amp;, int&amp;)这样的函数类似代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>&amp;a , <span class="keyword">int</span>&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a;</span><br><span class="line">    a =  b;</span><br><span class="line">    b = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果是要支持long,string,自定义class的swap函数,代码和上述代码差不多，只是类型不同，这个时候就是我们定义swap的函数模板,就可以复用不同类型的swap函数代码，函数模板的声明形式如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">identifier</span>&gt; <span class="title">function_declaration</span>;</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> identifier&gt; function_declaration;</span><br></pre></td></tr></table></figure>
+
+<p>swap函数模板的声明和定义代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//method.h</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T&amp; t1, T&amp; t2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"method.cpp"</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//method.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>  T&gt; <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(T&amp; t1, T&amp; t2)</span> </span>&#123;</span><br><span class="line">    T tmpT;</span><br><span class="line">    tmpT = t1;</span><br><span class="line">    t1 = t2;</span><br><span class="line">    t2 = tmpT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述是模板的声明和定义了，那模板如何实例化呢，模板的实例化是编译器做的事情，与程序员无关，那么上述模板如何使用呢，代码如下: </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"method.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//模板方法 </span></span><br><span class="line">    <span class="keyword">int</span> num1 = <span class="number">1</span>, num2 = <span class="number">2</span>;</span><br><span class="line">    swap&lt;<span class="keyword">int</span>&gt;(num1, num2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"num1:%d, num2:%d\n"</span>, num1, num2);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里使用swap函数，必须包含swap的定义，否则编译会出错，这个和一般的函数使用不一样。所以必须在method.h文件的最后一行加入#include “method.cpp”。</p>
+<h4 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h4><p>考虑我们写一个简单的栈的类，这个栈可以支持int类型，long类型，string类型等等，不利用类模板，我们就要写三个以上的stack类，其中代码基本一样，通过类模板，我们可以定义一个简单的栈模板，再根据需要实例化为int栈，long栈，string栈。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//statck.h</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">class</span> <span class="title">Stack</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Stack();</span><br><span class="line">        ~Stack();</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(T t)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        T *m_pT;        </span><br><span class="line">        <span class="keyword">int</span> m_maxSize;</span><br><span class="line">        <span class="keyword">int</span> m_size;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.cpp"</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//stack.cpp</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>  <span class="title">T</span>&gt;  <span class="title">Stack</span>&lt;T&gt;:</span>:Stack()&#123;</span><br><span class="line">   m_maxSize = <span class="number">100</span>;      </span><br><span class="line">   m_size = <span class="number">0</span>;</span><br><span class="line">   m_pT = <span class="keyword">new</span> T[m_maxSize];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;  <span class="title">Stack</span>&lt;T&gt;:</span>:~Stack() &#123;</span><br><span class="line">   <span class="keyword">delete</span> [] m_pT ;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">Stack</span>&lt;T&gt;:</span>:push(T t) &#123;</span><br><span class="line">    m_size++;</span><br><span class="line">    m_pT[m_size - <span class="number">1</span>] = t;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">T</span> <span class="title">Stack</span>&lt;T&gt;:</span>:pop() &#123;</span><br><span class="line">    T t = m_pT[m_size - <span class="number">1</span>];</span><br><span class="line">    m_size--;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">bool</span> <span class="title">Stack</span>&lt;T&gt;:</span>:isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述定义了一个类模板–栈，这个栈很简单，只是为了说明类模板如何使用而已，最多只能支持100个元素入栈，使用示例如下: </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Stack&lt;<span class="keyword">int</span>&gt; intStack;</span><br><span class="line">    intStack.push(<span class="number">1</span>);</span><br><span class="line">    intStack.push(<span class="number">2</span>);</span><br><span class="line">    intStack.push(<span class="number">3</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (!intStack.isEmpty()) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"num:%d\n"</span>, intStack.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>模板参数</strong><br>模板可以有类型参数，也可以有常规的类型参数int，也可以有默认模板参数，例如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">T</span> <span class="title">def_val</span>&gt; <span class="title">class</span> <span class="title">Stack</span>&#123;</span>...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述类模板的栈有一个限制，就是最多只能支持100个元素，我们可以使用模板参数配置这个栈的最大元素数,如果不配置，就设置默认最大值为100，代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//statck.h</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span> = 100&gt; <span class="title">class</span> <span class="title">Stack</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Stack();</span><br><span class="line">        ~Stack();</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(T t)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        T *m_pT;        </span><br><span class="line">        <span class="keyword">int</span> m_maxSize;</span><br><span class="line">        <span class="keyword">int</span> m_size;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.cpp"</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//stack.cpp</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span>&gt; <span class="title">Stack</span>&lt;T, maxsize&gt;:</span>:Stack()&#123;</span><br><span class="line">   m_maxSize = maxsize;      </span><br><span class="line">   m_size = <span class="number">0</span>;</span><br><span class="line">   m_pT = <span class="keyword">new</span> T[m_maxSize];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span>&gt;  <span class="title">Stack</span>&lt;T, maxsize&gt;:</span>:~Stack() &#123;</span><br><span class="line">   <span class="keyword">delete</span> [] m_pT ;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span>&gt; <span class="title">void</span> <span class="title">Stack</span>&lt;T, maxsize&gt;:</span>:push(T t) &#123;</span><br><span class="line">    m_size++;</span><br><span class="line">    m_pT[m_size - <span class="number">1</span>] = t;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span>&gt; <span class="title">T</span> <span class="title">Stack</span>&lt;T, maxsize&gt;:</span>:pop() &#123;</span><br><span class="line">    T t = m_pT[m_size - <span class="number">1</span>];</span><br><span class="line">    m_size--;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>,<span class="title">int</span> <span class="title">maxsize</span>&gt; <span class="title">bool</span> <span class="title">Stack</span>&lt;T, maxsize&gt;:</span>:isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用示例如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxsize = <span class="number">1024</span>;</span><br><span class="line">    Stack&lt;<span class="keyword">int</span>,<span class="number">1024</span>&gt; intStack;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxsize; i++) &#123;</span><br><span class="line">        intStack.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (!intStack.isEmpty()) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"num:%d\n"</span>, intStack.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="模板专门化"><a href="#模板专门化" class="headerlink" title="模板专门化"></a>模板专门化</h4><p> 当我们要定义模板的不同实现，我们可以使用模板的专门化。例如我们定义的stack类模板，如果是char*类型的栈，我们希望可以复制char的所有数据到stack类中，因为只是保存char指针，char指针指向的内存有可能会失效，stack弹出的堆栈元素char指针，指向的内存可能已经无效了。还有我们定义的swap函数模板，在vector或者list等容器类型时，如果容器保存的对象很大，会占用大量内存，性能下降，因为要产生一个临时的大对象保存a，这些都需要模板的专门化才能解决。</p>
+<p>函数模板专门化</p>
+<p>  假设我们swap函数要处理一个情况，我们有两个很多元素的vector<int>,在使用原来的swap函数，执行tmpT = t1要拷贝t1的全部元素，占用大量内存，造成性能下降，于是我们系统通过vector.swap函数解决这个问题,代码如下:</int></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//method.h</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">swap</span>(<span class="title">T</span>&amp; <span class="title">t1</span>, <span class="title">T</span>&amp; <span class="title">t2</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"method.cpp"</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">swap</span>(<span class="title">T</span>&amp; <span class="title">t1</span>, <span class="title">T</span>&amp; <span class="title">t2</span>) &#123;</span></span><br><span class="line">    T tmpT;</span><br><span class="line">    tmpT = t1;</span><br><span class="line">    t1 = t2;</span><br><span class="line">    t2 = tmpT;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t1, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t2)</span> </span>&#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>template&lt;&gt;前缀表示这是一个专门化,描述时不用模板参数，使用示例如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"method.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="comment">//模板方法 </span></span><br><span class="line">    <span class="built_in">string</span> str1 = <span class="string">"1"</span>, str2 = <span class="string">"2"</span>;</span><br><span class="line">    swap(str1, str2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"str1:%s, str2:%s\n"</span>, str1.c_str(), str2.c_str());  </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1, v2;</span><br><span class="line">    v1.push_back(<span class="number">1</span>);</span><br><span class="line">    v2.push_back(<span class="number">2</span>);</span><br><span class="line">    swap(v1, v2);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v1.size(); i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"v1[%d]:%d\n"</span>, i, v1[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v2.size(); i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"v2[%d]:%d\n"</span>, i, v2[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>vector<int>的swap代码还是比较局限，如果要用模板专门化解决所有vector的swap，该如何做呢，只需要把下面代码</int></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t1, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; t2)</span> </span>&#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br><span class="line">改为</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">V</span>&gt; <span class="title">void</span> <span class="title">swap</span>(<span class="title">std</span>:</span>:<span class="built_in">vector</span>&lt;V&gt;&amp; t1, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;V&gt;&amp; t2) &#123;</span><br><span class="line">    t1.swap(t2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就可以了，其他代码不变。</p>
+<p>类模板专门化</p>
+<p> 请看下面compare代码:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//compare.h</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"> <span class="title">class</span> <span class="title">compare</span></span></span><br><span class="line"><span class="class"> &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">equal</span><span class="params">(T t1, T t2)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> t1 == t2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"compare.h"</span></span></span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="keyword">char</span> str1[] = <span class="string">"Hello"</span>;</span><br><span class="line">  <span class="keyword">char</span> str2[] = <span class="string">"Hello"</span>;</span><br><span class="line">  compare&lt;<span class="keyword">int</span>&gt; c1;</span><br><span class="line">  compare&lt;<span class="keyword">char</span> *&gt; c2;   </span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; c1.equal(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;        <span class="comment">//比较两个int类型的参数</span></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; c2.equal(str1, str2) &lt;&lt; <span class="built_in">endl</span>;   <span class="comment">//比较两个char *类型的参数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在比较两个整数，compare的equal方法是正确的，但是compare的模板参数是char*时，这个模板就不能工作了，于是修改如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//compare.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"> <span class="title">class</span> <span class="title">compare</span></span></span><br><span class="line"><span class="class"> &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">equal</span><span class="params">(T t1, T t2)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> t1 == t2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;<span class="class"><span class="keyword">class</span> <span class="title">compare</span>&lt;char *&gt;  </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">equal</span><span class="params">(<span class="keyword">char</span>* t1, <span class="keyword">char</span>* t2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">strcmp</span>(t1, t2) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>main.cpp文件不变，此代码可以正常工作。</p>
+<h4 id="模板类型转换"><a href="#模板类型转换" class="headerlink" title="模板类型转换"></a>模板类型转换</h4><p>还记得我们自定义的Stack模板吗，在我们的程序中，假设我们定义了Shape和Circle类，代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//shape.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> <span class="keyword">public</span> Shape &#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们希望可以这么使用:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"shape.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Stack&lt;Circle*&gt; pcircleStack;</span><br><span class="line">    Stack&lt;Shape*&gt; pshapeStack;</span><br><span class="line">    pcircleStack.push(<span class="keyword">new</span> Circle);</span><br><span class="line">    pshapeStack = pcircleStack;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是无法编译的，因为Stack&lt;Shape<em>&gt;不是Stack&lt;Circle</em>&gt;的父类，然而我们却希望代码可以这么工作，那我们就要定义转换运算符了，Stack代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//statck.h</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">class</span> <span class="title">Stack</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Stack();</span><br><span class="line">        ~Stack();</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(T t)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T2</span>&gt;  <span class="title">operator</span> <span class="title">Stack</span>&lt;T2&gt;();</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        T *m_pT;        </span><br><span class="line">        <span class="keyword">int</span> m_maxSize;</span><br><span class="line">        <span class="keyword">int</span> m_size;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.cpp"</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span>  <span class="title">T</span>&gt;  <span class="title">Stack</span>&lt;T&gt;:</span>:Stack()&#123;</span><br><span class="line">   m_maxSize = <span class="number">100</span>;      </span><br><span class="line">   m_size = <span class="number">0</span>;</span><br><span class="line">   m_pT = <span class="keyword">new</span> T[m_maxSize];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;  <span class="title">Stack</span>&lt;T&gt;:</span>:~Stack() &#123;</span><br><span class="line">   <span class="keyword">delete</span> [] m_pT ;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">Stack</span>&lt;T&gt;:</span>:push(T t) &#123;</span><br><span class="line">    m_size++;</span><br><span class="line">    m_pT[m_size - <span class="number">1</span>] = t;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">T</span> <span class="title">Stack</span>&lt;T&gt;:</span>:pop() &#123;</span><br><span class="line">    T t = m_pT[m_size - <span class="number">1</span>];</span><br><span class="line">    m_size--;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">bool</span> <span class="title">Stack</span>&lt;T&gt;:</span>:isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">template</span> &lt;class T2&gt;  <span class="title">Stack</span>&lt;T&gt;:</span>:<span class="keyword">operator</span> Stack&lt;T2&gt;() &#123;</span><br><span class="line">    Stack&lt;T2&gt; StackT2;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m_size; i++) &#123;</span><br><span class="line">        StackT2.push((T2)m_pT[m_size - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> StackT2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stack.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"shape.h"</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Stack&lt;Circle*&gt; pcircleStack;</span><br><span class="line">    Stack&lt;Shape*&gt; pshapeStack;</span><br><span class="line">    pcircleStack.push(<span class="keyword">new</span> Circle);</span><br><span class="line">    pshapeStack = pcircleStack;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这样，Stack<circle>或者Stack&lt;Circle<em>&gt;就可以自动转换为Stack<shape>或者Stack&lt;Shape</shape></em>&gt;,如果转换的类型是Stack<int>到Stack<shape>，编译器会报错。</shape></int></circle></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>一个类没有模板参数，但是成员函数有模板参数，是可行的，代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Util</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">bool</span> <span class="title">equal</span>(<span class="title">T</span> <span class="title">t1</span>, <span class="title">T</span> <span class="title">t2</span>) &#123;</span></span><br><span class="line">            <span class="keyword">return</span> t1 == t2;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Util util;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    util.equal&lt;<span class="keyword">int</span>&gt;(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>甚至可以把Util的equal声明为static,代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Util</span> &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">         <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">static</span> <span class="title">bool</span> <span class="title">equal</span>(<span class="title">T</span> <span class="title">t1</span>, <span class="title">T</span> <span class="title">t2</span>) &#123;</span></span><br><span class="line">            <span class="keyword">return</span> t1 == t2;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">    Util::equal&lt;<span class="keyword">int</span>&gt;(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Lambda表达式"><a href="#4-Lambda表达式" class="headerlink" title="4 Lambda表达式"></a>4 Lambda表达式</h3><p>lambda表达式是c++11中最重要的新特性之一。lambda表达式实际上提供了一个类似匿名函数的特性，而匿名函数则是在需要一个函数，但是又不想费力去命名一个函数的情况下去使用的。</p>
+<p>lambda表达式基本语法</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">捕获列表</span>](<span class="link">参数列表</span>) mutable (可选) 异常属性 -&gt; 返回类型 &#123;</span><br><span class="line"> //函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所谓捕获列表,其实可以理解为参数的一种类型,lambda 表达式内部函数体在默认情况下是不能够使用函数体外部的变量的,这时候捕获列表可以起到传递外部数据的作用。根据传递的行为,捕获列表也分为以下几种:值捕获、引用捕获、隐式捕获、表达式捕获 (C++14)</p>
+<p>详见高速上手C++Ｐ<del>33</del></p>
+<p>总结一下，捕获提供了lambda表达式对外部值进行使用的功能，捕获列表的最常用的几种形式可以是:</p>
+<ul>
+<li>[]：默认不捕获任何变量；</li>
+<li>[=]：默认以值捕获所有变量；</li>
+<li>[&amp;]：默认以引用捕获所有变量；</li>
+<li>[x]：仅以值捕获x，其它变量不捕获；</li>
+<li>[&amp;x]：仅以引用捕获x，其它变量不捕获；</li>
+<li>[=, &amp;x]：默认以值捕获所有变量，但是x是例外，通过引用捕获；</li>
+<li>[&amp;, x]：默认以引用捕获所有变量，但是x是例外，通过值捕获；</li>
+<li>[this]：通过引用捕获当前对象（其实是复制指针）；</li>
+<li>[*this]：通过传值方式捕获当前对象；</li>
+</ul>
+<h3 id="５函数对象包装器"><a href="#５函数对象包装器" class="headerlink" title="５函数对象包装器"></a>５函数对象包装器</h3><h4 id="std-bind-std-placeholder"><a href="#std-bind-std-placeholder" class="headerlink" title="std::bind/std::placeholder"></a>std::bind/std::placeholder</h4><p>std::bind用来绑定函数调用的参数，它解决的需求是我们有时候可能并不一定能够一次性获得调用某个函数的全部参数，通过这个函数，我们可以将部分参数提前绑定到函数身上形成一个新的对象，然后在参数齐全后，完成调用。</p>
+<h3 id="6-右值引用"><a href="#6-右值引用" class="headerlink" title="6 右值引用"></a>6 右值引用</h3><p><strong>左值 (lvalue, left value)</strong>,顾名思义就是赋值符号左边的值。准确来说,左值是表达式(不一定是<br>赋值表达式)后依然存在的持久对象。<br><strong>右值 (rvalue, right value)</strong>,右边的值,是指表达式结束后就不再存在的临时对象。<br>而 C++11 中为了引入强大的右值引用,将右值的概念进行了进一步的划分,分为:纯右值、将亡<br>值。<br><strong>纯右值 (prvalue, pure rvalue)</strong>,纯粹的右值,要么是纯粹的字面量,例如 10 , true ;要么是求值<br>结果相当于字面量或匿名临时对象,例如 1+2 。非引用返回的临时变量、运算表达式产生的临时变量、原<br>始字面量、Lambda 表达式都属于纯右值。<br><strong>将亡值 (xvalue, expiring value)</strong>,是 C++11 为了引入右值引用而提出的概念(因此在传统 C++<br>中,纯右值和右值是同一个概念),也就是即将被销毁、却能够被移动的值。</p>
+<p><strong>右值引用申明</strong>：需要拿到一个将亡值,就需要用到右值引用的申明: T &amp;&amp; ,其中 T 是类型。右值引用的声明让这个<br>临时值的生命周期得以延长、只要变量还活着,那么将亡值将继续存活。</p>
+<p><strong>左值引用申明</strong>：T&amp;，其中Ｔ是类型。</p>
+<p><strong>移动语义</strong>：std::move(str) str为你要移动的左值　单纯的将左值转化为右值</p>
+<p><strong>完美转发</strong>：std::forward<t>(v)　　　　　　　　单纯的将参数做了一个类型的转换</t></p>
+<h3 id="７标准库"><a href="#７标准库" class="headerlink" title="７标准库"></a>７标准库</h3><h4 id="std-array"><a href="#std-array" class="headerlink" title="std::array"></a>std::array</h4><ol>
+<li>为什么要引入 std::array 而不是直接使用 std::vector ?</li>
+<li>已经有了传统数组,为什么要用 std::array ?</li>
+</ol>
+<p>​        先回答第一个问题,与 std::vector 不同, std::array 对象的大小是固定的,如果容器大小是固定<br>的,那么可以优先考虑使用 std::array 容器。另外由于 std::vector 是自动扩容的,当存入大量的数据<br>后,并且对容器进行了删除操作,容器并不会自动归还被删除元素相应的内存,这时候就需要手动运行<br>shrink_to_fit() 释放这部分内存。</p>
+<p>​        而第二个问题就更加简单,使用 std::array 能够让代码变得更加 ‘‘现代化’’,而且封装了一些操作函<br>数,比如获取数组大小以及检查是否非空,同时还能够友好的使用标准库中的容器算法,比如 std::sort 。</p>
+<p>std::array的简单使用，难免要兼容Ｃ风格的借口，有三种做法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span> <span class="params">( <span class="keyword">int</span> *p , <span class="keyword">int</span> len )</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span> :: <span class="built_in">array</span> &lt; <span class="keyword">int</span> , 4 &gt; arr = &#123;<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> ,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C风格接口传参</span></span><br><span class="line"><span class="comment">// foo ( arr, arr.size () ) ; // 非法 , 无法隐式转换</span></span><br><span class="line">foo (&amp;arr[<span class="number">0</span>], arr.size()) ;</span><br><span class="line">foo (arr.data(), arr.size()) ;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 使 用 ‘ std :: sort ‘</span></span><br><span class="line"> <span class="built_in">std</span> :: sort ( arr.begin(),arr.end());</span><br></pre></td></tr></table></figure>
+
+<h4 id="std-forward-list"><a href="#std-forward-list" class="headerlink" title="std::forward_list"></a>std::forward_list</h4><p>std::forward_list 是一个列表容器,使用方法和 std::list 基本类似,因此我们就不花费篇幅进行<br>介绍了。<br>需要知道的是,和 std::list 的双向链表的实现不同, std::forward_list 使用单向链表进行实现,提<br>供了 O(1) 复杂度的元素插入,不支持快速随机访问(这也是链表的特点),也是标准库容器中唯一一个<br>不提供 size() 方法的容器。当不需要双向迭代时,具有比 std::list 更高的空间利用率。</p>
+<h3 id="8-正则表达式"><a href="#8-正则表达式" class="headerlink" title="8 正则表达式"></a>8 正则表达式</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>​        正则表达式是由普通字符(例如 a 到 z)以及特殊字符组成的文字模式。模式描述在搜索文本时要<br>匹配的一个或多个字符串。正则表达式作为一个模板,将某个字符模式与所搜索的字符串进行匹配。</p>
+<p> <strong>需求</strong></p>
+<ol>
+<li>检查一个串是否包含某种形式的子串;</li>
+<li>将匹配的子串替换;</li>
+<li>从某个串中取出符合条件的子串。</li>
+</ol>
+<p><strong>普通字符</strong></p>
+<p>​        普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。这包括所有大写和小写字母、所<br>有数字、所有标点符号和一些其他符号。</p>
+<p><strong>特殊字符</strong></p>
+<p>特殊字符是正则表达式里有特殊含义的字符,也是正则表达式的核心匹配语法。参见下表:<br><img src="%E7%AC%94%E8%AE%B0_%E9%AB%98%E9%80%9F%E4%B8%8A%E6%89%8BC++/1565597617143.png" alt="1565597617143"></p>
+<p><strong>限定符</strong></p>
+<p>​        限定符用来指定正则表达式的一个给定的组件必须要出现多少次才能满足匹配。见下表:</p>
+<p><img src="%E7%AC%94%E8%AE%B0_%E9%AB%98%E9%80%9F%E4%B8%8A%E6%89%8BC++/1565597663015.png" alt="1565597663015"></p>
+<h4 id="std-regex-及其相关"><a href="#std-regex-及其相关" class="headerlink" title="std::regex 及其相关"></a>std::regex 及其相关</h4><p>C++11 提供的正则表达式库操作 std::string 对象,模式 std::regex (本质是 std::basic_regex ) 进<br>行初始化,通过 std::regex_match 进行匹配,从而产生 std::smatch (本质是 std::match_results 对象)<br>。</p>
+<p>我们通过一个简单的例子来简单介绍这个库的使用。考虑下面的正则表达式</p>
+<p>​         [a-z]+.txt : 在这个正则表达式中, [a-z] 表示匹配一个小写字母, + 可以使前面的表达式匹配多次,因此 [a-z]+ 能够匹配一个小写字母组成的字符串。在正则表达式中一个 . 表示匹配任意字符,而. 则表示匹配字符 . ,最后的 txt 表示严格匹配 txt 则三个字母。因此这个正则表达式的所要匹配的内容就是由纯小写字母组成的文本文件。<br>​        std::regex_match 用于匹配字符串和正则表达式,有很多不同的重载形式。最简单的一个形式就是传入 std::string 以及一个 std::regex 进行匹配,当匹配成功时,会返回 true ,否则返回 false 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;regex&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> fnames[] = &#123;<span class="string">"foo.txt"</span>,<span class="string">"bar.txt"</span>,<span class="string">"test"</span>,<span class="string">"a0.txt"</span>,<span class="string">"AAA.txt"</span>&#125;;</span><br><span class="line">	<span class="comment">//在C++中‘\‘会被作为字符串内的转义符,为使‘\.‘作为正则表达式传递进去生效,需要对‘\‘进行二次转义,从而有‘\\.‘</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="function">regex <span class="title">txt_regex</span> <span class="params">(<span class="string">"[a-z]+\\.txt"</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">const</span> <span class="keyword">auto</span> &amp;fname:fnames )</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;fname&lt;&lt;<span class="string">":"</span>&lt;&lt;<span class="built_in">std</span>::regex_match(fname,txt_regex)&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="９线程与并行"><a href="#９线程与并行" class="headerlink" title="９线程与并行"></a>９线程与并行</h3><p>TODO:</p>
+<h3 id="10字面量"><a href="#10字面量" class="headerlink" title="10字面量"></a>10字面量</h3><h4 id="原始字符串字面量"><a href="#原始字符串字面量" class="headerlink" title="原始字符串字面量"></a>原始字符串字面量</h4><p>C++11 提供了原始字符串字面量的写法,可以在一个字符串前方使用 R 来修饰这个字符串,同时,将原始字符串使用括号包裹,例如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="built_in">std</span>::<span class="built_in">string</span> str = <span class="string">R"(C:\File\To\Path)"</span>;</span><br><span class="line">     <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt;str&lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-22T21:03:33+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>last updated at Aug 22, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://gonglja.github.io/2019/08/17/笔记_高速上手C++/&title=笔记_高速上手C++ | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=学习C++过程中一些遇到的一些重点及问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gonglja.github.io/2019/08/17/笔记_高速上手C++/&title=笔记_高速上手C++ | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=学习C++过程中一些遇到的一些重点及问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://gonglja.github.io/2019/08/17/笔记_高速上手C++/&title=笔记_高速上手C++ | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=学习C++过程中一些遇到的一些重点及问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/08/17/记一次ESP8266刷固件遇到的问题及解决方法/" rel="prev" title="记一次ESP8266刷固件遇到的问题及解决方法">
+                                  
+                                      记一次ESP8266刷固件遇到的问题及解决方法
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/单片机/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>单片机</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/07/10/Ubuntu所遇问题及解决方案/" rel="prev" title="Ubuntu所遇问题及解决方案">
+                                    
+                                        Ubuntu所遇问题及解决方案
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Ubuntu/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Ubuntu</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '笔记_高速上手C++',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:glj0@outlook.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/gonglja"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=135847370"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#１一些需要注意的问题"><span class="toc-text">１一些需要注意的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#２范围的迭代写法（c-11引入）"><span class="toc-text">２范围的迭代写法（c++11引入）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-模板"><span class="toc-text">3 模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#c-模板template用法总结"><span class="toc-text">c++模板template用法总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引言"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数模板"><span class="toc-text">函数模板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类模板"><span class="toc-text">类模板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板专门化"><span class="toc-text">模板专门化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板类型转换"><span class="toc-text">模板类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Lambda表达式"><span class="toc-text">4 Lambda表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#５函数对象包装器"><span class="toc-text">５函数对象包装器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#std-bind-std-placeholder"><span class="toc-text">std::bind/std::placeholder</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-右值引用"><span class="toc-text">6 右值引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#７标准库"><span class="toc-text">７标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#std-array"><span class="toc-text">std::array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#std-forward-list"><span class="toc-text">std::forward_list</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-正则表达式"><span class="toc-text">8 正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#std-regex-及其相关"><span class="toc-text">std::regex 及其相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#９线程与并行"><span class="toc-text">９线程与并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10字面量"><span class="toc-text">10字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原始字符串字面量"><span class="toc-text">原始字符串字面量</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/android/" href="/categories/android/"><div class='name'>android</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/c/" href="/categories/c/"><div class='name'>c</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/c/" href="/categories/c/"><div class='name'>c++</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/darly/" href="/categories/darly/"><div class='name'>darly</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/esp8266/" href="/categories/esp8266/"><div class='name'>esp8266</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/github/" href="/categories/github/"><div class='name'>github</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/linux/" href="/categories/linux/"><div class='name'>linux</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/python/" href="/categories/python/"><div class='name'>python</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/quartus/" href="/categories/quartus/"><div class='name'>quartus</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/safety/" href="/categories/safety/"><div class='name'>safety</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/shell/" href="/categories/shell/"><div class='name'>shell</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/verilog/" href="/categories/verilog/"><div class='name'>verilog</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/windows/" href="/categories/windows/"><div class='name'>windows</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/小车/" href="/categories/小车/"><div class='name'>小车</div><div class='badge'>(4)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/FPGA/" style="font-size: 24px; color: #555">FPGA</a> <a href="/tags/Jlink/" style="font-size: 14px; color: #999">Jlink</a> <a href="/tags/K60/" style="font-size: 14px; color: #999">K60</a> <a href="/tags/Modelsim/" style="font-size: 14px; color: #999">Modelsim</a> <a href="/tags/PID/" style="font-size: 14px; color: #999">PID</a> <a href="/tags/Pycharm/" style="font-size: 14px; color: #999">Pycharm</a> <a href="/tags/TimeQuest-Timing-Analyzer/" style="font-size: 24px; color: #555">TimeQuest Timing Analyzer</a> <a href="/tags/Ubuntu/" style="font-size: 14px; color: #999">Ubuntu</a> <a href="/tags/blog/" style="font-size: 24px; color: #555">blog</a> <a href="/tags/单片机/" style="font-size: 24px; color: #555">单片机</a> <a href="/tags/小车/" style="font-size: 14px; color: #999">小车</a> <a href="/tags/常用命令/" style="font-size: 14px; color: #999">常用命令</a> <a href="/tags/转载/" style="font-size: 14px; color: #999">转载</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+  <section class='widget music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn"
+    
+      rel="external nofollow noopener noreferrer"
+    
+    
+      target="_blank"
+    
+    href="https://music.163.com/#/user/home?id=135847370"
+    title="https://music.163.com/#/user/home?id=135847370">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="171537019"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.2/files/banner.js"></script>
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:glj0@outlook.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/gonglja"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=135847370"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+<!-- 点击特效，输入特效 运行时间 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.1/files/cooltext.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.1/files/clicklove.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.1/files/sitetime.js"></script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.1/pictures/QQ20190508221908.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/gonglja/cdn-for-gonglja@1.1/pictures/QQ20190508221908.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
