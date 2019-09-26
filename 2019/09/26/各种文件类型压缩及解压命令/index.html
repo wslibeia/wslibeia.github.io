@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>HC-SR04超声波使用 | 一隅</title>
+  <title>各种文件类型压缩及解压命令 | 一隅</title>
   
   
 
@@ -306,8 +306,8 @@
         
   
     <h1 class="title">
-      <a href="/2017/10/18/hc-sr04/">
-        HC-SR04超声波使用
+      <a href="/2019/09/26/各种文件类型压缩及解压命令/">
+        各种文件类型压缩及解压命令
       </a>
     </h1>
   
@@ -336,7 +336,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2017-10-18</p>
+    <p>2019-09-26</p>
   </a>
 </div>
 
@@ -346,9 +346,9 @@
             
   
   <div class='new-meta-item category'>
-    <a href='/categories/小车/' rel="nofollow">
+    <a href='/categories/linux/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>小车</p>
+      <p>linux</p>
     </a>
   </div>
 
@@ -388,11 +388,10 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <a id="more"></a>
+          <p>这是预览</p>
+<a id="more"></a>
 
-
-<p><strong>超声波在K60使用方法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//调用逐飞库IIC,与逐飞摄像头使用冲突</span><br><span class="line">//主函数中记得初始化  gpio\_init(PTRn\_e,GPO,0);  Rx为你所初始化的io口</span><br><span class="line">//                    gpio\_init(PTRn\_e,GPI,0);</span><br><span class="line">//食用方法</span><br><span class="line">//eg:float var;</span><br><span class="line">//var=GetHcsrDistance(PTD2,PTD1);</span><br><span class="line"></span><br><span class="line"># define FLAGWAIT    0xFFFFF</span><br><span class="line"></span><br><span class="line">uint32 GetHcsrDistance(PTXn_e TRIG,PTXn_e ECHG)</span><br><span class="line">&#123;</span><br><span class="line">    uint32 g_GetPitTime,g_GetHcsrDistance;</span><br><span class="line">    uint32 flag;    </span><br><span class="line"></span><br><span class="line">    flag = 0;</span><br><span class="line">    gpio_set(TRIG,1);               //产生触发脉冲</span><br><span class="line">    pit_delay_us(PIT1,15);</span><br><span class="line">    gpio_set(TRIG,0);</span><br><span class="line"></span><br><span class="line">    while(gpio_get(ECHG) == 0);             //等待电平变高，低电平一直等待</span><br><span class="line">    pit_time_start  (PIT2);                 //开始计时</span><br><span class="line">    while(gpio_get(ECHG) == 1)              //等待电平变低，高电平一直等待</span><br><span class="line">    &#123;</span><br><span class="line">        flag++;</span><br><span class="line">        if(flag &gt;FLAGWAIT)</span><br><span class="line">        &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;             </span><br><span class="line"></span><br><span class="line">    g_GetPitTime = pit_time_get_us    (PIT2);    //停止计时，获取计时时间</span><br><span class="line">    if(flag 5)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;\n\n距离为：%dmm&quot;,g_GetPitTime); //打印延时时间</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return g_GetHcsrDistance; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">01-.tar格式</span><br><span class="line">解包：[＊＊＊＊＊＊＊]$ tar xvf FileName.tar</span><br><span class="line">打包：[＊＊＊＊＊＊＊]$ tar cvf FileName.tar DirName（注：tar是打包，不是压缩！）</span><br><span class="line">02-.gz格式</span><br><span class="line">解压1：[＊＊＊＊＊＊＊]$ gunzip FileName.gz</span><br><span class="line">解压2：[＊＊＊＊＊＊＊]$ gzip -d FileName.gz</span><br><span class="line">压 缩：[＊＊＊＊＊＊＊]$ gzip FileName</span><br><span class="line"></span><br><span class="line">03-.tar.gz格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar zxvf FileName.tar.gz</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ tar zcvf FileName.tar.gz DirName</span><br><span class="line"></span><br><span class="line">04-.bz2格式</span><br><span class="line">解压1：[＊＊＊＊＊＊＊]$ bzip2 -d FileName.bz2</span><br><span class="line">解压2：[＊＊＊＊＊＊＊]$ bunzip2 FileName.bz2</span><br><span class="line">压 缩： [＊＊＊＊＊＊＊]$ bzip2 -z FileName</span><br><span class="line"></span><br><span class="line">05-.tar.bz2格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar jxvf FileName.tar.bz2</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ tar jcvf FileName.tar.bz2 DirName</span><br><span class="line"></span><br><span class="line">06-.bz格式</span><br><span class="line">解压1：[＊＊＊＊＊＊＊]$ bzip2 -d FileName.bz</span><br><span class="line">解压2：[＊＊＊＊＊＊＊]$ bunzip2 FileName.bz</span><br><span class="line"></span><br><span class="line">07-.tar.bz格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar jxvf FileName.tar.bz</span><br><span class="line"></span><br><span class="line">08-.Z格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ uncompress FileName.Z</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ compress FileName</span><br><span class="line"></span><br><span class="line">09-.tar.Z格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar Zxvf FileName.tar.Z</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ tar Zcvf FileName.tar.Z DirName</span><br><span class="line"></span><br><span class="line">10-.tgz格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar zxvf FileName.tgz</span><br><span class="line"></span><br><span class="line">11-.tar.tgz格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ tar zxvf FileName.tar.tgz</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ tar zcvf FileName.tar.tgz FileName</span><br><span class="line"></span><br><span class="line">12-.zip格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ unzip FileName.zip</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ zip FileName.zip DirName</span><br><span class="line"></span><br><span class="line">13-.lha格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ lha -e FileName.lha</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ lha -a FileName.lha FileName</span><br><span class="line"></span><br><span class="line">14-.rar格式</span><br><span class="line">解压：[＊＊＊＊＊＊＊]$ rar a FileName.rar</span><br><span class="line">压缩：[＊＊＊＊＊＊＊]$ rar e FileName.rar</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -405,10 +404,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-07-21T10:23:49+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-09-26T22:21:25+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Jul 21, 2019</p>
+    <p>last updated at Sep 26, 2019</p>
   </a>
 </div>
 
@@ -417,7 +416,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/K60/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>K60</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/学习笔记/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>学习笔记</p></a></div>
 
 
         
@@ -430,7 +429,7 @@
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://gonglja.github.io/2017/10/18/hc-sr04/&title=HC-SR04超声波使用 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://gonglja.github.io/2019/09/26/各种文件类型压缩及解压命令/&title=各种文件类型压缩及解压命令 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=这是预览"
           
           >
           
@@ -442,7 +441,7 @@
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gonglja.github.io/2017/10/18/hc-sr04/&title=HC-SR04超声波使用 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gonglja.github.io/2019/09/26/各种文件类型压缩及解压命令/&title=各种文件类型压缩及解压命令 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=这是预览"
           
           >
           
@@ -454,7 +453,7 @@
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://gonglja.github.io/2017/10/18/hc-sr04/&title=HC-SR04超声波使用 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary="
+          href="http://service.weibo.com/share/share.php?url=https://gonglja.github.io/2019/09/26/各种文件类型压缩及解压命令/&title=各种文件类型压缩及解压命令 | 一隅&pics=http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg&summary=这是预览"
           
           >
           
@@ -478,36 +477,22 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
-                            <h4>
-                                <a href="/2017/10/18/PID的几种算法/" rel="prev" title="PID的几种算法">
-                                  
-                                      PID的几种算法
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/PID/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>PID</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2017/10/18/蓝牙示波器使用/" rel="prev" title="蓝牙示波器使用">
+                                <a href="/2019/09/26/笔记-ProGit-常用命令/" rel="prev" title="笔记_ProGit 常用命令">
                                     
-                                        蓝牙示波器使用
+                                        笔记_ProGit 常用命令
                                     
                                 </a>
                             </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/学习笔记/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>学习笔记</a>
+                                </h6>
                             
                         </span>
                     </section>
@@ -537,7 +522,7 @@
 
   <script>
     window.subData = {
-      title: 'HC-SR04超声波使用',
+      title: '各种文件类型压缩及解压命令',
       tools: true
     }
   </script>
