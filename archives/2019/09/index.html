@@ -186,7 +186,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<input type="text" class="input u-search-input" placeholder="Search" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -299,142 +299,9 @@
         
           
         
-          
-        
       
     
     
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal bannerno-title">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/09/26/笔记_progit常用命令/">
-      2019-09-26
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="https://gonglja.github.io" rel="nofollow">
-      
-        <img src="http://p2.music.126.net/moXiCSdSaNVNIB-W30tzzQ==/109951164133182470.jpg">
-      
-      <p>gonglja</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-09-26</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <h1 id="git常用命令笔记"><a href="#git常用命令笔记" class="headerlink" title="git常用命令笔记"></a>git常用命令笔记</h1><h3 id="本地gitlab搭建"><a href="#本地gitlab搭建" class="headerlink" title="本地gitlab搭建"></a>本地gitlab搭建</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.安装依赖包，执行完成后，出现邮件配置，选择Internet那一项（不带Smarthost）</span></span><br><span class="line">sudo apt-get install curl openssh-server ca-certificates postfix</span><br><span class="line"><span class="comment"># 2.首先信任 GitLab 的 GPG 公钥</span></span><br><span class="line">curl https://packages.gitlab.com/gpg.key 2&gt; /dev/null | sudo apt-key add - &amp;&gt;/dev/null</span><br><span class="line"><span class="comment"># 3.打开配置文件</span></span><br><span class="line"><span class="comment"># sudo vi /etc/apt/sources.list.d/gitlab-ce.list</span></span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">"deb https:\/\/mirrors.tuna.tsinghua.edu.cn\/gitlab-ce\/ubuntu xenial main"</span> &gt;&gt;/etc/apt/sources.list.d/gitlab-ce.list</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">" external_url \'http:\/\/192.168.1.100\/\'\"  &lt;&lt;/etc/gitlab/gitlab.rb</span></span><br><span class="line"><span class="string"># 4.安装gitlab-ce</span></span><br><span class="line"><span class="string">sudo apt-get update</span></span><br><span class="line"><span class="string">sudo apt-get install gitlab-ce</span></span><br><span class="line"><span class="string"># 5.启动sshd和postfix服务</span></span><br><span class="line"><span class="string">service sshd start</span></span><br><span class="line"><span class="string">service postfix start</span></span><br><span class="line"><span class="string"># 6.添加防火墙规则</span></span><br><span class="line"><span class="string">sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT</span></span><br><span class="line"><span class="string"># 7.启动各项服务</span></span><br><span class="line"><span class="string">sudo gitlab-ctl reconfigure</span></span><br><span class="line"><span class="string"># 8.检查gitlab是否装好并已经正确运行</span></span><br><span class="line"><span class="string">sudo gitlab-ctl status</span></span><br><span class="line"><span class="string"># 若得到以下结果，则正常</span></span><br><span class="line"><span class="string"># run: alertmanager: (pid 17681) 173s; run: log: (pid 17260) 207s</span></span><br><span class="line"><span class="string"># run: gitaly: (pid 17406) 176s; run: log: (pid 16746) 268s</span></span><br><span class="line"><span class="string"># run: gitlab-exporter: (pid 17490) 175s; run: log: (pid 17188) 215s</span></span><br><span class="line"><span class="string"># run: gitlab-workhorse: (pid 17459) 175s; run: log: (pid 17010) 232s</span></span><br><span class="line"><span class="string"># run: grafana: (pid 17708) 172s; run: log: (pid 17387) 183s</span></span><br><span class="line"><span class="string"># run: logrotate: (pid 17110) 224s; run: log: (pid 17124) 220s</span></span><br><span class="line"><span class="string"># run: nginx: (pid 17014) 230s; run: log: (pid 17043) 227s</span></span><br><span class="line"><span class="string"># run: node-exporter: (pid 17481) 175s; run: log: (pid 17166) 216s</span></span><br><span class="line"><span class="string"># run: postgres-exporter: (pid 17699) 172s; run: log: (pid 17306) 201s</span></span><br><span class="line"><span class="string"># run: postgresql: (pid 16750) 265s; run: log: (pid 16838) 264s</span></span><br><span class="line"><span class="string"># run: prometheus: (pid 17658) 174s; run: log: (pid 17250) 208s</span></span><br><span class="line"><span class="string"># run: redis: (pid 16583) 273s; run: log: (pid 16593) 272s</span></span><br><span class="line"><span class="string"># run: redis-exporter: (pid 17649) 174s; run: log: (pid 17202) 214s</span></span><br><span class="line"><span class="string"># run: sidekiq: (pid 16939) 242s; run: log: (pid 16955) 239s</span></span><br><span class="line"><span class="string"># run: unicorn: (pid 16911) 244s; run: log: (pid 16936) 242s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 9.浏览web页面并设置密码</span></span><br><span class="line"><span class="string"># http：//192.168.1.100</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 10.创建组</span></span><br><span class="line"><span class="string"># 11.添加ssh key</span></span><br><span class="line"><span class="string">ssh-keygen -t rsa -C "</span>邮箱地址<span class="string">"</span></span><br><span class="line"><span class="string"># 将rsa粘贴到网页ssh keys</span></span><br><span class="line"><span class="string">cat ~/.ssh/id_rsa.pub</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="本地管理"><a href="#本地管理" class="headerlink" title="本地管理"></a>本地管理</h3><h4 id="1-git-init"><a href="#1-git-init" class="headerlink" title="1.git init"></a>1.git init</h4><p>在工作目录中初始化新仓库</p>
-<h4 id="2-git-add-lt-file-gt"><a href="#2-git-add-lt-file-gt" class="headerlink" title="2.git add  &lt;file&gt;"></a>2.git add  &lt;file&gt;</h4><p>将&lt;file&gt;添加到暂存区</p>
-<h4 id="3-git-status"><a href="#3-git-status" class="headerlink" title="3.git status"></a>3.git status</h4><p>检查当前文件的状态</p>
-<h4 id="4-git-diff"><a href="#4-git-diff" class="headerlink" title="4.git diff"></a>4.git diff</h4><p>查看工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。</p>
-<p>参数:</p>
-<p>–cached（it） 查看已经暂存起来的文件和上次提交时的快照之间的差异。</p>
-<h4 id="5-git-commit"><a href="#5-git-commit" class="headerlink" title="5.git commit"></a>5.git commit</h4><p>提交暂存区域的内容</p>
-<p>参数：</p>
-<p>-m “说明”  提交带有”说明”的内容</p>
-<p>-a 自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过git add步骤</p>
-<p>–amend 修改最后一次提交（撤销上一次提交，然后将漏掉的文件add到暂存区域，然后在git commit）</p>
-<h4 id="6-git-rm"><a href="#6-git-rm" class="headerlink" title="6.git rm"></a>6.git rm</h4><p>从暂存区域移除，并连带从工作目录中删除指定的文件。</p>
-<p>参数：</p>
-<p>-f  &lt;file&gt;删除之前修改过已经放到暂存区域的数据（防止误删除文件后丢失修改的内容）</p>
-<p>–cached  &lt;file&gt; 只在暂存区域移除，不删除本地工作目录</p>
-<h4 id="7-git-mv-lt-file-from-gt-lt-file-to-gt"><a href="#7-git-mv-lt-file-from-gt-lt-file-to-gt" class="headerlink" title="7.git mv &lt;file_from&gt; &lt;file_to&gt;"></a>7.git mv &lt;file_from&gt; &lt;file_to&gt;</h4><p>将文件&lt;file_from&gt;改名为&lt;file_to&gt;</p>
-<h4 id="8-git-log"><a href="#8-git-log" class="headerlink" title="8.git log"></a>8.git log</h4><p>查看提交历史</p>
-<p>参数：</p>
-<p>-p 选项展开每次提交的内容差异</p>
-<p>-2 则显示最近的两次更新</p>
-<p>–stat 仅显示简要的增改函数统计</p>
-<h3 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h3><h4 id="9-git-remote"><a href="#9-git-remote" class="headerlink" title="9.git remote"></a>9.git remote</h4><p>查看当前的远程库</p>
-<p>参数：</p>
-<p>-v 显示对于对应的克隆地址</p>
-<p>add [shortname] [url] 添加远程仓库（可指定一个名字，以便将来引用），用shortname指代对应的仓库地址</p>
-<p>show [remote-name] 查看某个远程仓库的详细信息</p>
-<p>rename [old-name] [new-name] 修改某个远程仓库在本地的简称（注 对远程仓库的重命名，也会使对应的分支名称发生变化）</p>
-<h4 id="10-git-fetch-remote-name"><a href="#10-git-fetch-remote-name" class="headerlink" title="10.git fetch [remote-name]"></a>10.git fetch [remote-name]</h4><p>从远程仓库抓取数据到本地（到远程仓库中拉取所有本地仓库中还没有的数据）</p>
-<p>只抓取数据，不合并分支</p>
-<h4 id="11-git-pull"><a href="#11-git-pull" class="headerlink" title="11.git pull"></a>11.git pull</h4><p>前提：设置了某个分支用于跟踪某个远端仓库的分支。</p>
-<p>自动抓取数据到本地仓库并合并到本地仓库中的当前分支。</p>
-<h4 id="12-git-push-remote-name-branch-name"><a href="#12-git-push-remote-name-branch-name" class="headerlink" title="12.git push [remote-name] [branch-name]"></a>12.git push [remote-name] [branch-name]</h4><p>将本地仓库中的数据推送到远程仓库。</p>
-<p>第一次需要添加远程仓库名及本地仓库名，后续只需git push即可</p>
-<p>参数</p>
-<p>[remote-name] [tag版本号] 远程仓库名 origin，如果要打上tag， 推送时后直接跟版本号  即 git push origin v4.3（前提是已经打上标签）</p>
-<h4 id="13-git-tag"><a href="#13-git-tag" class="headerlink" title="13.git tag"></a>13.git tag</h4><p>新建标签</p>
-<p>轻量级标签后直接加版本号即 git tag [tag-name]</p>
-<p>参数：</p>
-<p>-a [tag-name] 用来指定标签的名字</p>
-<p>-m [tag-说明]  用来指定对应的标签说明</p>
-<p>[提交对象的校验和（或前几位字符）]  用来后期加注标签，直接-a后跟校验和即可</p>
-<h3 id="分支模型"><a href="#分支模型" class="headerlink" title="分支模型"></a>分支模型</h3><h4 id="14-git-branch"><a href="#14-git-branch" class="headerlink" title="14.git branch"></a>14.git branch</h4><p>查看分支</p>
-<p>参数：</p>
-<p> [branch-name] 新建一个名为brabch-name的分支</p>
-<p>-d  [branch-name]   删除一个名为brabch-name的分支</p>
-<h4 id="15-git-checkout-branch-name"><a href="#15-git-checkout-branch-name" class="headerlink" title="15.git checkout [branch-name]"></a>15.git checkout [branch-name]</h4><p>切换到名为branch-name的分支</p>
-
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
       
         
           <div class='post-wrapper'>
@@ -522,7 +389,7 @@
         <div class="readmore">
           <a href="/2019/09/26/笔记-ProGit-常用命令/" class="flat-box">
             <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
+            Read More
           </a>
         </div>
       
@@ -715,7 +582,7 @@
   <section class='widget category'>
     
 <header class='pure'>
-  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
   
     <a class="rightBtn"
     
@@ -776,7 +643,7 @@
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
   
     <a class="rightBtn"
     
@@ -892,19 +759,19 @@
     </div>
   
   <br>
-  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
   <div>
-    本站使用
+    Use
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    作为主题
+    as theme
     
-      ，
-      总访问量为
+      , 
+      total visits
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      次
+      times
     
-    。
+    . 
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1022,15 +889,15 @@
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "复制成功";
-  let COPY_FAILURE = "复制失败";
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {
