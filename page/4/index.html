@@ -244,6 +244,207 @@
       
         
   <h2 class="title">
+    <a href="/2018/04/10/C语言中怎样判断数组与字符串是否相等？/">
+      C语言中怎样判断数组与字符串是否相等？
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://gonglja.github.io" rel="nofollow">
+      
+        <img src="http://p1.music.126.net/aRvqPbvdM2Zomfei_hlBAg==/109951164250708635.jpg">
+      
+      <p>gonglja</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2018-04-10</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/c/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>c</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <a id="more"></a>
+
+<p>比较字符可以直接使用==比较操作符，如： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">char c1=&apos;a&apos;,c2=&apos;b&apos;;</span><br><span class="line">if(c1==c2) </span><br><span class="line">	printf(&quot;%c is same as %c.&quot;,c1,c2);</span><br><span class="line">else </span><br><span class="line">	printf(&quot;%c is different to %c&quot;,c1,c2);</span><br></pre></td></tr></table></figure>
+
+<p> 若是字符串，则需要使用字符串函数了，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strcmp char s1[]=&quot;abc&quot;,s2[]=&quot;xyz&quot;;</span><br><span class="line">if(strcmp(s1,s2)==0) printf(&quot;%s is same as %s.&quot;,s1,s2);</span><br></pre></td></tr></table></figure>
+
+<p>也可以忽略大小写来比较，使用函数stricmp 中间的i意思是ignore case sensitive 还可以指定长度比较，strncmp，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char s1[]=&quot;abc&quot;,s2[]=&quot;abcdefg&quot;;</span><br><span class="line">if(strncmp(s1,s2,3)==0)</span><br><span class="line">	printf(&quot;first 3 characters are same&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>若不是从开头位置开始比较，如： char s1[]=”abc”,s2[]=”xyzabc”                   if(strncmp(s1,&amp;s2[3],3)==0) //就是比较s1和s2的第3个字符开始的内容</p>
+
+      
+    </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal banner">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2017/12/24/同一局域网下手机使用电脑端SSR教程/">
+      同一局域网下手机使用电脑端SSR教程
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="https://gonglja.github.io" rel="nofollow">
+      
+        <img src="http://p1.music.126.net/aRvqPbvdM2Zomfei_hlBAg==/109951164250708635.jpg">
+      
+      <p>gonglja</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2017-12-24</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/safety/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>safety</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+       <a id="more"></a>
+
+<p>1.打开电脑端Shadowsocks R,选择你要使用的服务器（确保能够使用） [<img src="http://pajzh5iu4.bkt.clouddn.com/image/2018/7/23/17/28/17/%E6%96%B0%E5%BB%BA%E4%BD%8D%E5%9B%BE%E5%9B%BE%E5%83%8F.bmp" alt="新建位图图像.bmp"></p>
+<p>2.打开Shadowsocks R，打开选项设置，版本不同可能不太一样，多找找 <img src="http://pajzh5iu4.bkt.clouddn.com/image/2018/7/23/17/28/45/TIM%E6%88%AA%E5%9B%BE20171224093948.png" alt="TIM截图20171224093948.png"> 打开允许局域网的连接，记住所设定的端口（建议1080） </p>
+<p>3.Win+R启动运行，输入 cmd 回车进入命令行 输入ipconfig 回车 <img src="http://pajzh5iu4.bkt.clouddn.com/image/2018/7/23/17/29/20/TIM%E6%88%AA%E5%9B%BE20171224095012.png" alt="TIM截图20171224095012.png"></p>
+<p>4.打开手机WiFi 连接网络确保在同一网络下 打开代理设置如下图 <img src="http://pajzh5iu4.bkt.clouddn.com/image/2018/7/23/17/25/25/2017-11-26-14-39-59-%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="2017-11-26-14-39-59-的屏幕截图.png">主机设置为电脑的ip 端口为步骤2下设定的端口 </p>
+<p>5.打开浏览器,输入<a href="http://www.google.hk即可访问" target="_blank" rel="noopener">www.google.hk即可访问</a></p>
+
+      
+    </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal banner">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
     <a href="/2017/12/08/xpose插件之音量增强器/">
       xpose插件之音量增强器
     </a>
@@ -1052,197 +1253,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post reveal banner">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2017/10/18/蓝牙示波器使用/">
-      蓝牙示波器使用
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="https://gonglja.github.io" rel="nofollow">
-      
-        <img src="http://p1.music.126.net/aRvqPbvdM2Zomfei_hlBAg==/109951164250708635.jpg">
-      
-      <p>gonglja</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2017-10-18</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/小车/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>小车</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <a id="more"></a>
-
-<p>蓝牙示波器部分代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//蓝牙串口函数</span></span><br><span class="line"><span class="comment">//食用方法</span></span><br><span class="line"><span class="comment">//直接在主函数中调用data_send（数据1，数据2，数据3，数据4）;</span></span><br><span class="line"><span class="comment">//数据类型为int32</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> OutData[<span class="number">4</span>] = &#123; <span class="number">0</span> &#125;;<span class="comment">//对应通道 需要发送的赋值过来 再调用SDS_OutPut_Data函数 先打开虚拟示波器 再运行软件</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">CRC_CHECK</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">char</span> *Buf, <span class="keyword">unsigned</span> <span class="keyword">char</span> CRC_CNT)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> CRC_Temp;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> i,j;</span><br><span class="line">    CRC_Temp = <span class="number">0xffff</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;CRC_CNT; i++)&#123;      </span><br><span class="line">        CRC_Temp ^= Buf[i];</span><br><span class="line">        <span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;<span class="number">8</span>;j++) &#123; <span class="keyword">if</span> (CRC_Temp &amp; <span class="number">0x01</span>) CRC_Temp = (CRC_Temp &gt;&gt;<span class="number">1</span> ) ^ <span class="number">0xa001</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                CRC_Temp = CRC_Temp &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;                                                  </span><br><span class="line">    <span class="keyword">return</span>(CRC_Temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OutPut_Data</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> temp[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> temp1[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> databuf[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> i;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">short</span> CRC16 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">   &#123;</span><br><span class="line">    </span><br><span class="line">    temp[i]  = (<span class="keyword">int</span>)OutData[i];</span><br><span class="line">    temp1[i] = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)temp[i];</span><br><span class="line">    </span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++) </span><br><span class="line">  &#123;</span><br><span class="line">    databuf[i*<span class="number">2</span>]   = (<span class="keyword">unsigned</span> <span class="keyword">char</span>)(temp1[i]%<span class="number">256</span>);</span><br><span class="line">    databuf[i*<span class="number">2</span>+<span class="number">1</span>] = (<span class="keyword">unsigned</span> <span class="keyword">char</span>)(temp1[i]/<span class="number">256</span>);</span><br><span class="line">  &#125;</span><br><span class="line">              </span><br><span class="line">  CRC16 = CRC_CHECK(databuf,<span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">  databuf[<span class="number">8</span>] = CRC16%<span class="number">256</span>;</span><br><span class="line">  databuf[<span class="number">9</span>] = CRC16/<span class="number">256</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    uart_putchar(UART4,databuf[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">data_send</span><span class="params">(int32 data1,int32 data2,int32 data3,int32 data4 )</span> </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">     OutData[<span class="number">0</span>]=data1;</span><br><span class="line">     OutData[<span class="number">1</span>]=data2; </span><br><span class="line">     OutData[<span class="number">2</span>]=data3; </span><br><span class="line">     OutData[<span class="number">3</span>]=data4;   </span><br><span class="line">     OutPut_Data();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal banner">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2017/10/18/鸡汤文，送给来访的各位以及自己。/">
-      鸡汤文，送给来访的各位以及自己。
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="https://gonglja.github.io" rel="nofollow">
-      
-        <img src="http://p1.music.126.net/aRvqPbvdM2Zomfei_hlBAg==/109951164250708635.jpg">
-      
-      <p>gonglja</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2017-10-18</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/darly/' rel="nofollow">
-      <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>darly</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <a id="more"></a>
-
-
-<p>你学习一般，考上了现在的这所学校，成绩不算好，拿不到奖学金，上课不听讲，上自习不规律，考试靠突击，同学帮一把的话也能每科考到七八十分，但是与优秀总有很大距离。 你家境一般，父母都是普通员工，你在这个城市的生活费是每月一千二，没事下下馆子，一个月添件衣服，想买台相机，咬咬牙才能买双自己喜欢的鞋。 你几乎没有特长，不会弹吉他，不会弹钢琴，不会跳舞，不会画画，想学摄影却不会使用图片处理软件，想上台演出却没信心，学校晚会比赛的时候，你经常是站在台下围观的人群里的一员，你与聚光灯环绕的舞台几乎绝缘。 你长相一般，不算英俊或者不算美丽，身材不算臃肿但也没什么肌肉或者没什么曲线，平时只是稍稍打扮一下，看上去并不出众，只能算整洁，与人擦肩而过是对方不会多留意你一眼。你的感情也是一般，有时候会遇见自己心仪的那个人，但是总抓不住机会，眨眼间那个人就被其他人俘获，你就开始伤心、抱怨，但是几天之后又开始寻找新的心上人，就这样看着一个个心上人走过，直到你毕业，与其中任何一个都没有发展。 总之，你没有什么特别的地方 ，就和周围的千万个普通人一样。 你不甘心拿不到奖学金，看见别人得奖学金的时候你会说那完全是突击的结果，于是你开始上自习，不过你只坚持了一星期。 你不甘心自己的父辈平平，于是你批评讽刺自己周围的“官二代”、“富二代”，立志要努力学习争取成功，也好让自己的孩子成为“富二代”，你的热情持续了一个星期。 你不甘心自己什么特长都没有，于是你开始学弹吉他、买滑轮鞋、借来摄影方面的书籍，你对着镜子微笑着说：“你是最棒的。” 这份虚假的信心维持了一个星期。 你不甘心自己没有伴侣，你决心洗心革面重新做人，你删掉电脑里的偶像剧肥皂剧，你收拾起床上的懒人桌，把零食袋子统统扔掉，然后洗了个澡并且修饰了一下自己，你往发型上喷了啫喱水，好让自己看起来很精神，你怀揣着一本成功学的书决定出去走走，开始新的生活。这样的状态，你稀稀拉拉地坚持了一个星期。 一个星期之后，你还是和周围千万个人一样，你还是和一星期前的自己一样。 你逛网络论坛，看到了这样一句话：“二十岁是人生最美好的时光，不应该局限在学校里教室里，应该享受生活。” 于是你相信了，你觉得二十岁的你就应该“随心所欲”，享受“人生中最后的自由时光”；就应该“快乐地去恋爱”“风华正茂”“挥斥方遒”······ 现在的你，用着父母的血汗钱，用着名牌包、穿着名牌跑鞋、骑着捷安特山地车、用着佳能牌的相机和苹果牌的手机，还经常去星巴克喝喝咖啡体验一下小资情调······ 那么，请允许我猜测一下你的未来—— 在大四将要结束时，你考研落榜。你风风火火的参加校园招聘会，很多公司你都看不上，嫌他们不是体制内单位、平台窄、规模小，直到毕业，你还没有找到心仪的工作。你收拾好行李回到老家，父母让你试着参加各种招聘考试或者参加当地的应聘会，你不去，因为你觉得那些工作太简单了，不适合你，你应该去寻找更好的就业机会。可是，当你去那些你看得上的公司应聘时，你的竞争对手太多了，而且都不差，你表现平平，理所当然地被拒之门外······ 现在的你，也许还在上大学，也许和恋人恩恩爱爱，每天黏在一起，午饭晚饭一起去吃，晚自习后还会一起在操场散步。你们讨论起未来，最后的结论总是：不要想得太多，认真过好现在就好。 不幸运的话，几个月后，你们就分手了，你凄凄惨惨戚戚，反复问自己究竟哪里做错了；幸运的话，你们会一直恋爱到毕业，最终，你绝得自己不够优秀没能力去对方所在的城市读研或者工作，所以你们带着不舍和悔恨分手了。 现实很残酷，至此，你信了。 现在的你喜欢刷微博，你会全力支持那些你赞同的观点，你会激励否定那些你反对的观点。你爱憎分明，看起来很有正义感。你觉得血气方刚的年轻人就应该敢于说出自己的心声。你可能从来不会去想一个问题：你的观点，来自哪里？其实，它们绝大部分来自网络，它们已经蚕食了你的判断力。 现在，我只想问你一个问题：二十岁的你，有什么资本。 你只是千千万万人中微不足道的一个人，少了你，地球还是一样会转。 我敢打赌，一定很久没人和你说过“吃得苦中苦，方为人上人”这句话了吧？ 你知道“责任”两个字是怎么写的吗? 当你谈论飞翔的时候，你是不是忘记了地心引力的存在？ 现在的你，如果还是放纵着自己的懒惰与幼稚，虚度着光阴，那么，你就虚度去吧。反正我已经过了二十岁的年纪，我还有未来，我得直奔向前了，不陪你了。 再见 </p>
-<p>作者：嗨乔先森 </p>
-<p>来源：简书</p>
-
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1258,8 +1268,14 @@
             </a>
           
           <p class="current">
-            4 / 4
+            4 / 5
           </p>
+          
+            <a class="next" rel="next" href="/page/5/">
+              <section class="post next">
+                &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </section>
+            </a>
           
         </div>
       </div>
@@ -1481,6 +1497,10 @@
         
           <li><a class="flat-box" title="/categories/小车/" href="/categories/小车/"><div class='name'>小车</div><div class='badge'>(4)</div></a></li>
         
+          <li><a class="flat-box" title="/categories/日常/" href="/categories/日常/"><div class='name'>日常</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/系统集成/" href="/categories/系统集成/"><div class='name'>系统集成</div><div class='badge'>(1)</div></a></li>
+        
       </ul>
     </div>
   </section>
@@ -1510,7 +1530,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/FPGA/" style="font-size: 19px; color: #777">FPGA</a> <a href="/tags/Jlink/" style="font-size: 14px; color: #999">Jlink</a> <a href="/tags/K60/" style="font-size: 14px; color: #999">K60</a> <a href="/tags/Modelsim/" style="font-size: 14px; color: #999">Modelsim</a> <a href="/tags/PID/" style="font-size: 14px; color: #999">PID</a> <a href="/tags/Pycharm/" style="font-size: 14px; color: #999">Pycharm</a> <a href="/tags/TimeQuest-Timing-Analyzer/" style="font-size: 19px; color: #777">TimeQuest Timing Analyzer</a> <a href="/tags/Ubuntu/" style="font-size: 14px; color: #999">Ubuntu</a> <a href="/tags/blog/" style="font-size: 19px; color: #777">blog</a> <a href="/tags/单片机/" style="font-size: 19px; color: #777">单片机</a> <a href="/tags/学习笔记/" style="font-size: 24px; color: #555">学习笔记</a> <a href="/tags/小车/" style="font-size: 14px; color: #999">小车</a> <a href="/tags/常用命令/" style="font-size: 14px; color: #999">常用命令</a> <a href="/tags/转载/" style="font-size: 14px; color: #999">转载</a>
+      <a href="/tags/FPGA/" style="font-size: 17.33px; color: #828282">FPGA</a> <a href="/tags/Jlink/" style="font-size: 14px; color: #999">Jlink</a> <a href="/tags/K60/" style="font-size: 14px; color: #999">K60</a> <a href="/tags/Modelsim/" style="font-size: 14px; color: #999">Modelsim</a> <a href="/tags/PID/" style="font-size: 14px; color: #999">PID</a> <a href="/tags/Pycharm/" style="font-size: 14px; color: #999">Pycharm</a> <a href="/tags/TimeQuest-Timing-Analyzer/" style="font-size: 17.33px; color: #828282">TimeQuest Timing Analyzer</a> <a href="/tags/Ubuntu/" style="font-size: 14px; color: #999">Ubuntu</a> <a href="/tags/blog/" style="font-size: 24px; color: #555">blog</a> <a href="/tags/单片机/" style="font-size: 17.33px; color: #828282">单片机</a> <a href="/tags/学习笔记/" style="font-size: 20.67px; color: #6c6c6c">学习笔记</a> <a href="/tags/小车/" style="font-size: 14px; color: #999">小车</a> <a href="/tags/常用命令/" style="font-size: 14px; color: #999">常用命令</a> <a href="/tags/转载/" style="font-size: 14px; color: #999">转载</a>
     </div>
   </section>
 
